@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户注册 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">企业介绍</a></li>
+            <li><a href="recruit.html">招聘信息</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="message.html">留言板</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <div style="max-width: 400px; margin: 0 auto;">
+        <h1 style="text-align: center; margin-bottom: 2rem;">用户注册</h1>
+
+        <form id="register-form" class="contact-form" aria-label="注册表单">
+          <div class="form-row">
+            <label for="register-name">姓名</label>
+            <input id="register-name" name="name" type="text" placeholder="请输入真实姓名" required />
+          </div>
+          <div class="form-row">
+            <label for="register-email">邮箱</label>
+            <input id="register-email" name="email" type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-row">
+            <label for="register-phone">电话（可选）</label>
+            <input id="register-phone" name="phone" type="tel" placeholder="请输入联系电话" />
+          </div>
+          <div class="form-row">
+            <label for="register-password">密码</label>
+            <input id="register-password" name="password" type="password" placeholder="至少6位" minlength="6" required />
+          </div>
+          <div class="form-row">
+            <label for="register-password-confirm">确认密码</label>
+            <input id="register-password-confirm" name="passwordConfirm" type="password" placeholder="请再次输入密码" minlength="6" required />
+          </div>
+          <button class="btn" type="submit" style="width: 100%;">注册</button>
+          <p style="text-align: center; margin-top: 1rem;">
+            已有账号？<a href="login.html" style="color: var(--primary);">立即登录</a>
+          </p>
+        </form>
+
+        <div id="register-error" style="display: none; color: #dc3545; margin-top: 1rem; padding: 0.75rem; background: #f8d7da; border-radius: 0.5rem;"></div>
+        <div id="register-success" style="display: none; color: #155724; margin-top: 1rem; padding: 0.75rem; background: #d4edda; border-radius: 0.5rem;"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      (async () => {
+        // 设置年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 注册表单处理
+        const form = document.getElementById('register-form');
+        const errorDiv = document.getElementById('register-error');
+        const successDiv = document.getElementById('register-success');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          errorDiv.style.display = 'none';
+          successDiv.style.display = 'none';
+
+          const password = document.getElementById('register-password').value;
+          const passwordConfirm = document.getElementById('register-password-confirm').value;
+
+          if (password !== passwordConfirm) {
+            errorDiv.textContent = '两次输入的密码不一致';
+            errorDiv.style.display = 'block';
+            return;
+          }
+
+          const userData = {
+            name: document.getElementById('register-name').value.trim(),
+            email: document.getElementById('register-email').value.trim(),
+            phone: document.getElementById('register-phone').value.trim(),
+            password: password
+          };
+
+          try {
+            const response = await apiClient.register(userData);
+            if (response.success) {
+              successDiv.textContent = '注册成功！正在跳转到登录页面...';
+              successDiv.style.display = 'block';
+              setTimeout(() => {
+                window.location.href = 'login.html';
+              }, 1500);
+            }
+          } catch (error) {
+            let errorMessage = error.message || '注册失败，请检查输入信息';
+            
+            // 提供更详细的错误提示
+            if (errorMessage.includes('无法连接到服务器')) {
+              errorMessage = `无法连接到后端服务器。\n\n请按以下步骤检查：\n1. 确保后端服务器已启动（在项目目录运行 npm start）\n2. 确认服务器运行在 http://localhost:3000\n3. 检查浏览器控制台是否有更多错误信息\n\n如果后端未启动，请先启动后端服务器：\ncd e:\\anji\\cursor\nnpm start`;
+            }
+            
+            errorDiv.innerHTML = errorMessage.replace(/\n/g, '<br>');
+            errorDiv.style.display = 'block';
+            
+            // 如果是服务器连接错误，添加帮助链接
+            if (errorMessage.includes('无法连接到服务器')) {
+              const helpLink = document.createElement('p');
+              helpLink.style.marginTop = '0.5rem';
+              helpLink.innerHTML = '<a href="BACKEND_SETUP.md" style="color: var(--primary); text-decoration: underline;">查看部署文档</a>';
+              errorDiv.appendChild(helpLink);
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
+

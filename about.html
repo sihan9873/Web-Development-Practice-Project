@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业介绍 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a class="active" href="about.html">企业介绍</a></li>
+            <li><a href="recruit.html">招聘信息</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="message.html">留言板</a></li>
+            <li class="auth-buttons" id="auth-buttons" style="display: none;">
+              <a href="login.html" class="btn-nav">登录</a>
+              <a href="register.html" class="btn-nav btn-nav-primary">注册</a>
+            </li>
+            <li class="user-menu" id="user-menu" style="display: none;">
+              <span class="user-name" id="user-name"></span>
+              <button class="btn-nav" id="logout-btn">退出</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>企业介绍</h1>
+      <section>
+        <h2>公司概况</h2>
+        <p>
+          星辉科技成立于 2010 年，是一家专注于人工智能、云计算与物联网解决方案的高科技企业。我们以“技术赋能产业升级”为使命，持续在工业、金融、医疗、教育等领域为客户创造价值。
+        </p>
+      </section>
+
+      <section>
+        <h2>发展历程</h2>
+        <ul class="timeline">
+          <li>
+            <span class="timeline-year">2010</span>
+            公司成立，推出第一代企业信息化平台。
+          </li>
+          <li>
+            <span class="timeline-year">2015</span>
+            自主研发的云平台上线，服务客户突破 500 家。
+          </li>
+          <li>
+            <span class="timeline-year">2019</span>
+            在深圳设立智慧城市实验室，推进城市级 IoT 项目落地。
+          </li>
+          <li>
+            <span class="timeline-year">2024</span>
+            荣获“国家高新技术企业”认证，全球员工突破 2000 人。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>企业文化</h2>
+        <div class="culture-grid">
+          <article>
+            <h3>使命</h3>
+            <p>通过创新科技，帮助客户实现高质量增长。</p>
+          </article>
+          <article>
+            <h3>愿景</h3>
+            <p>成为全球领先的智慧产业综合服务提供商。</p>
+          </article>
+          <article>
+            <h3>价值观</h3>
+            <p>客户至上、持续创新、诚实守信、开放合作。</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>社会责任</h2>
+        <p>
+          星辉科技积极履行企业社会责任，关注环境保护、社区发展与人才培养。我们连续多年投入公益项目，包括绿色能源研发支持与偏远地区教育资助计划。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/auth-nav.js"></script>
+  </body>
+</html>
+

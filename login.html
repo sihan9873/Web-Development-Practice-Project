@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户登录 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">企业介绍</a></li>
+            <li><a href="recruit.html">招聘信息</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="message.html">留言板</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <div style="max-width: 400px; margin: 0 auto;">
+        <h1 style="text-align: center; margin-bottom: 2rem;">用户登录</h1>
+
+        <form id="login-form" class="contact-form" aria-label="登录表单">
+          <div class="form-row">
+            <label for="login-email">邮箱</label>
+            <input id="login-email" name="email" type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-row">
+            <label for="login-password">密码</label>
+            <input id="login-password" name="password" type="password" placeholder="请输入密码" required />
+          </div>
+          <button class="btn" type="submit" style="width: 100%;">登录</button>
+          <p style="text-align: center; margin-top: 1rem;">
+            还没有账号？<a href="register.html" style="color: var(--primary);">立即注册</a>
+          </p>
+        </form>
+
+        <div id="login-error" style="display: none; color: #dc3545; margin-top: 1rem; padding: 0.75rem; background: #f8d7da; border-radius: 0.5rem;"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      (async () => {
+        // 检查是否已登录
+        const user = await checkAuth();
+        if (user) {
+          window.location.href = user.role === 'admin' ? 'admin.html' : 'index.html';
+          return;
+        }
+
+        // 设置年份
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 登录表单处理
+        const form = document.getElementById('login-form');
+        const errorDiv = document.getElementById('login-error');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          errorDiv.style.display = 'none';
+
+          const email = document.getElementById('login-email').value.trim();
+          const password = document.getElementById('login-password').value;
+
+          try {
+            const response = await apiClient.login(email, password);
+            if (response.success) {
+              const user = response.data.user;
+              if (user.role === 'admin') {
+                window.location.href = 'admin.html';
+              } else {
+                window.location.href = 'index.html';
+              }
+            }
+          } catch (error) {
+            let errorMessage = error.message || '登录失败，请检查邮箱和密码';
+            
+            // 提供更详细的错误提示
+            if (errorMessage.includes('无法连接到服务器')) {
+              errorMessage = `无法连接到后端服务器。\n\n请确保后端服务器已启动（运行 npm start）`;
+            }
+            
+            errorDiv.innerHTML = errorMessage.replace(/\n/g, '<br>');
+            errorDiv.style.display = 'block';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
+

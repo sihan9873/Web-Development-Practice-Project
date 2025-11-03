@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>留言板 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">企业介绍</a></li>
+            <li><a href="recruit.html">招聘信息</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a class="active" href="message.html">留言板</a></li>
+            <li class="auth-buttons" id="auth-buttons" style="display: none;">
+              <a href="login.html" class="btn-nav">登录</a>
+              <a href="register.html" class="btn-nav btn-nav-primary">注册</a>
+            </li>
+            <li class="user-menu" id="user-menu" style="display: none;">
+              <span class="user-name" id="user-name"></span>
+              <button class="btn-nav" id="logout-btn">退出</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>留言板</h1>
+      <p class="lead">欢迎留下您的建议与想法，我们将认真倾听并持续改进。</p>
+
+      <section class="message-board">
+        <form id="message-form" class="message-form" aria-label="留言表单">
+          <div class="form-row">
+            <label for="guest-name">姓名</label>
+            <input id="guest-name" name="guest-name" type="text" placeholder="请输入姓名" required />
+          </div>
+          <div class="form-row">
+            <label for="guest-message">留言内容</label>
+            <textarea id="guest-message" name="guest-message" rows="4" placeholder="欢迎留言..." required></textarea>
+          </div>
+          <button class="btn" type="submit">发布留言</button>
+        </form>
+
+        <section aria-live="polite" aria-label="留言列表">
+          <h2>最新留言</h2>
+          <ul id="message-list" class="message-list"></ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/auth-nav.js"></script>
+  </body>
+</html>
+

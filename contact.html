@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联系我们 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">企业介绍</a></li>
+            <li><a href="recruit.html">招聘信息</a></li>
+            <li><a class="active" href="contact.html">联系我们</a></li>
+            <li><a href="message.html">留言板</a></li>
+            <li class="auth-buttons" id="auth-buttons" style="display: none;">
+              <a href="login.html" class="btn-nav">登录</a>
+              <a href="register.html" class="btn-nav btn-nav-primary">注册</a>
+            </li>
+            <li class="user-menu" id="user-menu" style="display: none;">
+              <span class="user-name" id="user-name"></span>
+              <button class="btn-nav" id="logout-btn">退出</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>联系我们</h1>
+      <div class="contact-grid">
+        <section>
+          <h2>商务合作</h2>
+          <p>邮箱：<a href="mailto:bd@xinghui.com">bd@xinghui.com</a></p>
+          <p>电话：+86 755 8888 0000</p>
+          <p>地址：深圳市南山区科技大道 88 号 星辉科技总部大厦</p>
+        </section>
+
+        <section>
+          <h2>售后服务</h2>
+          <p>邮箱：<a href="mailto:support@xinghui.com">support@xinghui.com</a></p>
+          <p>热线：400-123-4567（工作日 9:00-18:00）</p>
+        </section>
+
+        <section>
+          <h2>媒体采访</h2>
+          <p>邮箱：<a href="mailto:pr@xinghui.com">pr@xinghui.com</a></p>
+          <p>联系人：刘女士</p>
+        </section>
+      </div>
+
+      <section class="contact-form-section">
+        <h2>在线留言</h2>
+        <form class="contact-form" aria-label="在线联系表单">
+          <div class="form-row">
+            <label for="name">姓名</label>
+            <input id="name" name="name" type="text" placeholder="请输入姓名" required />
+          </div>
+          <div class="form-row">
+            <label for="email">邮箱</label>
+            <input id="email" name="email" type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-row">
+            <label for="company">公司名称</label>
+            <input id="company" name="company" type="text" placeholder="请输入公司名称" />
+          </div>
+          <div class="form-row">
+            <label for="message">需求描述</label>
+            <textarea id="message" name="message" rows="5" placeholder="请简要说明您的需求" required></textarea>
+          </div>
+          <button class="btn" type="submit">提交</button>
+          <p class="form-tip">提交信息后，我们的商务团队将在 2 个工作日内与您联系。</p>
+        </form>
+      </section>
+
+      <section class="map-section">
+        <h2>公司位置</h2>
+        <div class="map-placeholder" role="img" aria-label="公司地图位置">地图占位符</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/auth-nav.js"></script>
+  </body>
+</html>
+

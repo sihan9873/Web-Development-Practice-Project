@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>招聘信息 - 星辉科技</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="logo" href="index.html">星辉科技</a>
+        <nav class="site-nav" aria-label="主导航">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">菜单</button>
+          <ul id="primary-menu" aria-expanded="false">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">企业介绍</a></li>
+            <li><a class="active" href="recruit.html">招聘信息</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="message.html">留言板</a></li>
+            <li class="auth-buttons" id="auth-buttons" style="display: none;">
+              <a href="login.html" class="btn-nav">登录</a>
+              <a href="register.html" class="btn-nav btn-nav-primary">注册</a>
+            </li>
+            <li class="user-menu" id="user-menu" style="display: none;">
+              <span class="user-name" id="user-name"></span>
+              <button class="btn-nav" id="logout-btn">退出</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page">
+      <h1>加入星辉科技</h1>
+      <p class="lead">
+        我们致力于打造开放、创新的工作环境，提供有竞争力的薪酬与全面的成长体系，期待与你一起改变未来。
+      </p>
+
+      <section class="job-section">
+        <h2>社会招聘</h2>
+        <div class="job-list">
+          <article class="job-card">
+            <h3>高级前端工程师</h3>
+            <p>负责企业级产品的前端架构设计与性能优化，推动跨团队协作。</p>
+            <ul>
+              <li>熟悉 React/Vue 等主流框架</li>
+              <li>具备良好的工程化与研发流程意识</li>
+              <li>本科及以上学历，3 年以上经验</li>
+            </ul>
+            <button class="btn secondary apply-btn" type="button" data-position="高级前端工程师">投递简历</button>
+          </article>
+          <article class="job-card">
+            <h3>云平台架构师</h3>
+            <p>参与云平台产品规划，负责核心服务设计、实施与运营。</p>
+            <ul>
+              <li>掌握 Kubernetes、容器化与微服务架构</li>
+              <li>具备大型分布式系统设计经验</li>
+              <li>硕士及以上学历优先</li>
+            </ul>
+            <button class="btn secondary apply-btn" type="button" data-position="云平台架构师">投递简历</button>
+          </article>
+          <article class="job-card">
+            <h3>AI 算法工程师</h3>
+            <p>负责机器学习模型研发、训练与部署，支持行业解决方案。</p>
+            <ul>
+              <li>熟悉深度学习框架（PyTorch/TensorFlow）</li>
+              <li>具备数据分析、特征工程能力</li>
+              <li>有行业落地项目经验者优先</li>
+            </ul>
+            <button class="btn secondary apply-btn" type="button" data-position="AI 算法工程师">投递简历</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="job-section">
+        <h2>校园招聘</h2>
+        <p>
+          我们为应届毕业生提供系统化的培训计划和导师机制，欢迎勇于探索、热爱技术的你加入。
+        </p>
+        <div class="job-list">
+          <article class="job-card">
+            <h3>产品经理培训生</h3>
+            <ul>
+              <li>关注用户体验，具备良好的沟通表达能力</li>
+              <li>了解基础的产品设计流程</li>
+              <li>不限专业，本科及以上学历</li>
+            </ul>
+            <button class="btn secondary apply-btn" type="button" data-position="产品经理培训生">投递简历</button>
+          </article>
+          <article class="job-card">
+            <h3>软件开发工程师</h3>
+            <ul>
+              <li>掌握至少一门编程语言（Java/Python/C++）</li>
+              <li>熟悉数据结构与算法基础</li>
+              <li>本科及以上学历，计算机相关专业优先</li>
+            </ul>
+            <button class="btn secondary apply-btn" type="button" data-position="软件开发工程师">投递简历</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="job-section">
+        <h2>人才发展</h2>
+        <div class="culture-grid">
+          <article>
+            <h3>成长路径</h3>
+            <p>多通道职业发展体系，覆盖技术、管理与专业序列。</p>
+          </article>
+          <article>
+            <h3>培训体系</h3>
+            <p>内部学习平台、外部认证资源与导师辅导，全面提升综合能力。</p>
+          </article>
+          <article>
+            <h3>福利关怀</h3>
+            <p>提供完善的薪酬福利、健康保障与员工关爱计划。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>在线投递简历</h2>
+        <p class="lead">填写以下信息完成投递，我们会在 3 个工作日内与符合条件的候选人联系。</p>
+        <div class="resume-container">
+          <form id="resume-form" class="resume-form" aria-label="在线投递简历">
+            <div class="form-row">
+              <label for="candidate-name">姓名</label>
+              <input id="candidate-name" name="candidate-name" type="text" placeholder="请输入真实姓名" required />
+            </div>
+            <div class="form-row">
+              <label for="candidate-email">邮箱</label>
+              <input id="candidate-email" name="candidate-email" type="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-row">
+              <label for="candidate-phone">联系电话</label>
+              <input id="candidate-phone" name="candidate-phone" type="tel" placeholder="请输入联系方式" required />
+            </div>
+            <div class="form-row">
+              <label for="candidate-position">意向职位</label>
+              <select id="candidate-position" name="candidate-position" required>
+                <option value="">请选择意向岗位</option>
+                <option value="高级前端工程师">高级前端工程师</option>
+                <option value="云平台架构师">云平台架构师</option>
+                <option value="AI 算法工程师">AI 算法工程师</option>
+                <option value="产品经理培训生">产品经理培训生</option>
+                <option value="软件开发工程师">软件开发工程师</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="candidate-resume">简历链接</label>
+              <input id="candidate-resume" name="candidate-resume" type="url" placeholder="请输入网盘或个人主页链接" required />
+            </div>
+            <div class="form-row">
+              <label for="candidate-intro">自我介绍</label>
+              <textarea id="candidate-intro" name="candidate-intro" rows="4" placeholder="简要介绍您的核心优势与过往经历" required></textarea>
+            </div>
+            <button class="btn" type="submit">提交申请</button>
+            <p class="form-tip">提示：信息仅保存在本地浏览器，方便您跟踪投递记录。</p>
+          </form>
+
+          <section class="resume-list-section" aria-live="polite" aria-label="已提交的简历列表">
+            <h3>我的投递记录</h3>
+            <ul id="resume-list" class="resume-list"></ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> 星辉科技有限公司 · 粤ICP备10000000号</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/auth-nav.js"></script>
+  </body>
+</html>
+
